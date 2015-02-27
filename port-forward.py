@@ -20,12 +20,13 @@ import socket
 import sys
 import thread
 import time
- 
+import os
+
 def main(setup, error):
     # open file for error messages
     sys.stderr = file(error, 'a')
     # read settings for port forwarding
-    for settings in parse(setup):
+    for settings in loadConfig():
         thread.start_new_thread(server, settings)
     # wait for <ctrl-c>
     while True:
@@ -38,6 +39,14 @@ def parse(setup):
         settings.append((int(parts[0]), parts[1], int(parts[2])))
     return settings
  
+def loadConfig():
+    settings = []
+    LOCAL = (int(os.environ.get('SHOEHORN_LOCAL', 2575)))
+    PORT = (int(os.environ.get('SHORHORN_RPORT', 80)))
+    HOST = os.environ.get('SHOEHORN_RHOST', 'localhost')
+    setting.append((LOCAL,HOST,PORT))
+    return settings
+
 def server(*settings):
     try:
         dock_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
