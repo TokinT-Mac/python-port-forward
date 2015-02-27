@@ -41,7 +41,7 @@ def parse(setup):
  
 def loadConfig():
     settings = []
-    LOCAL = (int(os.environ.get('SHOEHORN_LOCAL', 2575)))
+    LOCAL = (int(os.environ.get('SHOEHORN_LOCAL', 80)))
     PORT = (int(os.environ.get('SHOEHORN_RPORT', 80)))
     HOST = os.environ.get('SHOEHORN_RHOST', 'localhost')
     settings.append((LOCAL,HOST,PORT))
