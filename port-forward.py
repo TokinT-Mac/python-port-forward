@@ -44,7 +44,7 @@ def loadConfig():
     LOCAL = (int(os.environ.get('SHOEHORN_LOCAL', 2575)))
     PORT = (int(os.environ.get('SHORHORN_RPORT', 80)))
     HOST = os.environ.get('SHOEHORN_RHOST', 'localhost')
-    setting.append((LOCAL,HOST,PORT))
+    settings.append((LOCAL,HOST,PORT))
     return settings
 
 def server(*settings):
