@@ -1,7 +1,7 @@
 FROM python:2-onbuild
 
-ENV 80
+ENV SHOEHORN_LOCAL=80
 
-EXPOSE 80
+EXPOSE $SHOEHORN_LOCAL
 
 CMD ["python", "./port-forward.py"]

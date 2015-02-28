@@ -24,9 +24,10 @@ import os
 
 def main(setup, error):
     # open file for error messages
-    sys.stderr = file(error, 'a')
+    #sys.stderr = file(error, 'a')
     # read settings for port forwarding
     for settings in loadConfig():
+        print "Forwarding port %i to %s:%i"%settings
         thread.start_new_thread(server, settings)
     # wait for <ctrl-c>
     while True:
